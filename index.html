@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Re:School</title>
+  <meta name="description" content="Re:Schoolは、注意の質を育てる実践だ。場所を訪ね、問いを置き、痕跡を残す。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --ink:   #111111;
+      --paper: #FAFAF8;
+      --mid:   #888888;
+      --light: #BBBBBB;
+      --rule:  #DCDCDC;
+    }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'Outfit', 'Noto Sans JP', sans-serif;
+      font-weight: 300;
+      line-height: 1.8;
+      padding: 0 24px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      width: 100%;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── Header ── */
+
+    header {
+      padding: 80px 0 72px;
+    }
+
+    .wordmark {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 400;
+      font-size: 28px;
+      letter-spacing: 0.06em;
+      color: var(--ink);
+      display: block;
+      margin-bottom: 28px;
+    }
+
+    .tagline-jp {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 300;
+      font-size: 14px;
+      letter-spacing: 0.1em;
+      color: var(--mid);
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .tagline-en {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 300;
+      font-size: 13px;
+      letter-spacing: 0.06em;
+      color: var(--light);
+      display: block;
+    }
+
+    /* ── Rule ── */
+
+    .rule {
+      width: 32px;
+      height: 1px;
+      background: var(--rule);
+      margin: 64px 0;
+    }
+
+    /* ── About ── */
+
+    .about {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .about-jp {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 300;
+      font-size: 15px;
+      line-height: 2.1;
+      color: var(--ink);
+    }
+
+    .about-en {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 1.9;
+      color: var(--mid);
+    }
+
+    /* ── Platforms ── */
+
+    .platforms {
+      display: flex;
+      flex-direction: column;
+      gap: 52px;
+    }
+
+    .platform {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .platform-label {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 400;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--light);
+    }
+
+    .platform-handle {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 400;
+      font-size: 18px;
+      letter-spacing: 0.02em;
+    }
+
+    .platform-handle a {
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .platform-handle a:hover {
+      text-decoration: underline;
+      text-underline-offset: 5px;
+      text-decoration-color: var(--rule);
+    }
+
+    .platform-desc-jp {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 300;
+      font-size: 13px;
+      line-height: 2;
+      color: var(--ink);
+    }
+
+    .platform-desc-en {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 300;
+      font-size: 13px;
+      line-height: 1.8;
+      color: var(--mid);
+    }
+
+    /* ── Footer ── */
+
+    footer {
+      margin-top: auto;
+      padding: 64px 0 48px;
+      border-top: 1px solid var(--rule);
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+    }
+
+    .footer-mark {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 400;
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      color: var(--light);
+    }
+
+    .footer-sub {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 300;
+      font-size: 11px;
+      color: var(--rule);
+      letter-spacing: 0.04em;
+    }
+
+    /* ── Responsive ── */
+
+    @media (max-width: 480px) {
+      header { padding: 56px 0 48px; }
+      .rule  { margin: 48px 0; }
+      footer { flex-direction: column; gap: 6px; }
+    }
+
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <span class="wordmark">Re:School</span>
+    <span class="tagline-jp">再び、学ぶことへ。</span>
+    <span class="tagline-en">Back to learning.</span>
+  </header>
+
+  <div class="rule"></div>
+
+  <section class="about">
+    <p class="about-jp">
+      Re:Schoolは、注意の質を育てる実践だ。<br>
+      場所を訪ね、問いを置き、痕跡を残す。<br>
+      学校ではない。学ぶことへの、もう一つの入り口。
+    </p>
+    <p class="about-en">
+      Re:School is a practice for cultivating the quality of attention.<br>
+      We visit places, leave questions, make traces.<br>
+      Not a school. Another entrance to learning.
+    </p>
+  </section>
+
+  <div class="rule"></div>
+
+  <section class="platforms">
+
+    <div class="platform">
+      <span class="platform-label">X / Twitter</span>
+      <span class="platform-handle"><a href="https://x.com/reschoolfield" target="_blank" rel="noopener">@reschoolfield</a></span>
+      <p class="platform-desc-jp">学校だより — 場所を「学校」として紹介する。体験カードから生まれた観察と問いを、毎週ひとつ。</p>
+      <p class="platform-desc-en">学校だより — Places introduced as schools. One observation or question from the field, each week.</p>
+    </div>
+
+    <div class="platform">
+      <span class="platform-label">Instagram</span>
+      <span class="platform-handle"><a href="https://instagram.com/reschoolfield" target="_blank" rel="noopener">@reschoolfield</a></span>
+      <p class="platform-desc-jp">フィールドの記録 — 言葉になる前の場所を記録する。体験カードを書いた場所の写真と、短いキャプション。</p>
+      <p class="platform-desc-en">Field record — the place before it became language. Photographs from where the cards were written.</p>
+    </div>
+
+  </section>
+
+  <footer>
+    <span class="footer-mark">Re:School</span>
+    <span class="footer-sub">問いの原っぱ / Field of Questions</span>
+  </footer>
+
+</div>
+</body>
+</html>
