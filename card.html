@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>体験カード — Re:School</title>
+  <meta name="description" content="場所を訪ね、何かが動いたなら、書いてみてほしい。Re:Schoolの体験カードは、誰でも使える記録の形式だ。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --ink:   #111111;
+      --paper: #FAFAF8;
+      --mid:   #888888;
+      --light: #BBBBBB;
+      --rule:  #DCDCDC;
+    }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'Outfit', 'Noto Sans JP', sans-serif;
+      font-weight: 300;
+      line-height: 1.8;
+      padding: 0 24px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      width: 100%;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── Header ── */
+
+    header {
+      padding: 80px 0 72px;
+    }
+
+    .wordmark {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 400;
+      font-size: 28px;
+      letter-spacing: 0.06em;
+      color: var(--ink);
+      display: block;
+      margin-bottom: 6px;
+      text-decoration: none;
+    }
+
+    .wordmark:hover {
+      text-decoration: underline;
+      text-underline-offset: 5px;
+      text-decoration-color: var(--rule);
+    }
+
+    .page-title-jp {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 300;
+      font-size: 14px;
+      letter-spacing: 0.1em;
+      color: var(--mid);
+      display: block;
+      margin-bottom: 5px;
+      margin-top: 28px;
+    }
+
+    .page-title-en {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 300;
+      font-size: 13px;
+      letter-spacing: 0.06em;
+      color: var(--mid);
+      display: block;
+    }
+
+    /* ── Rule ── */
+
+    .rule {
+      width: 32px;
+      height: 1px;
+      background: var(--rule);
+      margin: 64px 0;
+    }
+
+    /* ── Intro ── */
+
+    .intro {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .intro-jp {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 300;
+      font-size: 15px;
+      line-height: 2.1;
+      color: var(--ink);
+    }
+
+    .intro-en {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 1.9;
+      color: var(--ink);
+    }
+
+    /* ── Template ── */
+
+    .template {
+      display: flex;
+      flex-direction: column;
+      gap: 52px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .field-label {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 400;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--light);
+    }
+
+    .field-title-jp {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      letter-spacing: 0.04em;
+      color: var(--ink);
+    }
+
+    .field-title-en {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 300;
+      font-size: 13px;
+      color: var(--ink);
+      margin-top: 2px;
+    }
+
+    .field-guide-jp {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 300;
+      font-size: 13px;
+      line-height: 2;
+      color: var(--mid);
+      margin-top: 4px;
+    }
+
+    .field-guide-en {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 300;
+      font-size: 12px;
+      line-height: 1.8;
+      color: var(--mid);
+    }
+
+    .subfield {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      padding-left: 16px;
+      border-left: 1px solid var(--rule);
+      margin-top: 8px;
+    }
+
+    .subfield-item {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .subfield-name-jp {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 400;
+      font-size: 13px;
+      color: var(--ink);
+    }
+
+    .subfield-name-en {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 300;
+      font-size: 12px;
+      color: var(--ink);
+    }
+
+    .subfield-guide {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 300;
+      font-size: 12px;
+      line-height: 1.9;
+      color: var(--mid);
+    }
+
+    .subfield-guide-en {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 300;
+      font-size: 12px;
+      line-height: 1.8;
+      color: var(--mid);
+    }
+
+    .optional-tag {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 300;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      color: var(--light);
+      text-transform: uppercase;
+    }
+
+    /* ── Closing ── */
+
+    .closing {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .closing-jp {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 2.1;
+      color: var(--mid);
+    }
+
+    .closing-en {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 300;
+      font-size: 13px;
+      line-height: 1.9;
+      color: var(--mid);
+    }
+
+    /* ── Footer ── */
+
+    footer {
+      margin-top: auto;
+      padding: 64px 0 48px;
+      border-top: 1px solid var(--rule);
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+    }
+
+    .footer-mark {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 400;
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      color: var(--light);
+      text-decoration: none;
+    }
+
+    .footer-mark:hover {
+      text-decoration: underline;
+      text-underline-offset: 5px;
+      text-decoration-color: var(--rule);
+    }
+
+    .footer-sub {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 300;
+      font-size: 11px;
+      color: var(--rule);
+      letter-spacing: 0.04em;
+    }
+
+    /* ── Responsive ── */
+
+    @media (max-width: 480px) {
+      header { padding: 56px 0 48px; }
+      .rule  { margin: 48px 0; }
+      footer { flex-direction: column; gap: 6px; }
+    }
+
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <a href="/" class="wordmark">Re:School</a>
+    <span class="page-title-jp">体験カード</span>
+    <span class="page-title-en">Experience Card</span>
+  </header>
+
+  <div class="rule"></div>
+
+  <section class="intro">
+    <p class="intro-jp">
+      場所を訪ね、何かが動いたなら、書いてみてほしい。<br>
+      評価ではなく、観察を。結論ではなく、体験の流れを。<br>
+      カードは自分のために書く。それだけで、十分だ。
+    </p>
+    <p class="intro-en">
+      If you visit a place and something moves in you — write it down.<br>
+      Not evaluation. Observation. Not conclusion. The flow of experience.<br>
+      Write the card for yourself. That is enough.
+    </p>
+  </section>
+
+  <div class="rule"></div>
+
+  <section class="template">
+
+    <div class="field">
+      <span class="field-label">01</span>
+      <span class="field-title-jp">場所の名前</span>
+      <span class="field-title-en">Place name</span>
+    </div>
+
+    <div class="field">
+      <span class="field-label">02</span>
+      <span class="field-title-jp">一文で言うと</span>
+      <span class="field-title-en">In one sentence</span>
+      <p class="field-guide-jp">この場所を、評価や推薦を含まない一文で。「良かった」「おすすめ」は書かない。</p>
+      <p class="field-guide-en">Describe the place in a single sentence. No evaluation, no recommendation.</p>
+    </div>
+
+    <div class="field">
+      <span class="field-label">03</span>
+      <span class="field-title-jp">体験の流れ</span>
+      <span class="field-title-en">Flow of experience</span>
+      <p class="field-guide-jp">この場所に入ってから出るまでの間に、何がどう展開したか。「感動した」は書かない。起きたことを、起きた順に。</p>
+      <p class="field-guide-en">What unfolded from entry to exit. Not "it was wonderful." What happened, as it happened.</p>
+    </div>
+
+    <div class="field">
+      <span class="field-label">04</span>
+      <span class="field-title-jp">起きやすかったこと</span>
+      <span class="field-title-en">What tended to happen</span>
+      <div class="subfield">
+        <div class="subfield-item">
+          <span class="subfield-name-jp">注意</span>
+          <span class="subfield-name-en">Attention</span>
+          <p class="subfield-guide">注意はどこへ向かったか。何が引き留めたか。</p>
+          <p class="subfield-guide-en">Where did attention go? What held it?</p>
+        </div>
+        <div class="subfield-item">
+          <span class="subfield-name-jp">相互作用</span>
+          <span class="subfield-name-en">Interaction</span>
+          <p class="subfield-guide">身体はどう動いたか。他の人・もの・場との間に何が起きたか。</p>
+          <p class="subfield-guide-en">How did the body move? What arose between self, others, objects, space?</p>
+        </div>
+        <div class="subfield-item">
+          <span class="subfield-name-jp">偶発性</span>
+          <span class="subfield-name-en">Contingency</span>
+          <p class="subfield-guide">予想していなかったこと、設計されていなかったこと。</p>
+          <p class="subfield-guide-en">What was unplanned, undesigned, uncontrolled?</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="field">
+      <span class="field-label">05</span>
+      <span class="field-title-jp">残った問い</span>
+      <span class="field-title-en">Questions that remained</span>
+      <p class="field-guide-jp">答えをまだ持っていない問いだけを書く。「なぜ〜なのだろうか」で始まる問いでも、答えが見えているなら書かない。</p>
+      <p class="field-guide-en">Only questions for which you do not already hold an answer. If the answer is implied, leave it out.</p>
+    </div>
+
+    <div class="field">
+      <span class="field-label">06</span>
+      <span class="field-title-jp">1分の持ち帰り <span class="optional-tag">任意 / optional</span></span>
+      <span class="field-title-en">1-minute takeaway</span>
+      <p class="field-guide-jp">この場所を離れた後すぐにできる、身体的・感覚的な行動をひとつ。動作として書く。「振り返り」ではなく、「動き」を。</p>
+      <p class="field-guide-en">One bodily or sensory action to take right after leaving. Written as movement, not reflection.</p>
+    </div>
+
+  </section>
+
+  <div class="rule"></div>
+
+  <section class="closing">
+    <p class="closing-jp">
+      カードは自分のものだ。<br>
+      Re:Schoolに送ってもいいし、そのまま持っていてもいい。<br>
+      書くことで、何かが起きる。
+    </p>
+    <p class="closing-en">
+      The card belongs to you.<br>
+      Send it to Re:School, or keep it.<br>
+      Something happens in the writing.
+    </p>
+  </section>
+
+  <footer>
+    <a href="/" class="footer-mark">Re:School</a>
+    <span class="footer-sub">問いの原っぱ / Field of Questions</span>
+  </footer>
+
+</div>
+</body>
+</html>
